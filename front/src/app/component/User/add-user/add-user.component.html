@@ -1,0 +1,102 @@
+<h1>ADD user</h1>
+
+<form [(formGroup)]="angForm" novalidate>
+ 
+     
+      <div class="form-group">
+        <label for="">First Name	</label>
+        <input  type="text"
+         class="form-control"  placeholder="Enter the name"
+         formControlName="nom" 
+         #nom>
+      </div>
+      <div *ngIf="angForm.controls['nom'].invalid && (angForm.controls['nom'].dirty || angForm.controls['nom'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['nom'].errors.required">
+          First Name  is required.
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="">Last Name	</label>
+        <input class="form-control"
+            placeholder="Enter the Last Name"
+            formControlName="prenom" 
+         #prenom>
+      </div>
+      <div *ngIf="angForm.controls['prenom'].invalid && (angForm.controls['prenom'].dirty || angForm.controls['prenom'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['prenom'].errors.required">
+          Last Name  is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1"> sexe	</label>
+        <input 
+          type="text"
+          class="form-control" 
+          placeholder="Enter the sexe"
+          formControlName="sexe" 
+          #sexe>
+      </div>
+      <div *ngIf="angForm.controls['sexe'].invalid && (angForm.controls['sexe'].dirty || angForm.controls['sexe'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['sexe'].errors.required">
+          sexe  is required.
+        </div>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="">cin	</label>
+        <input  type="number"
+         class="form-control"  placeholder="Enter the civilité"
+         formControlName="cin" 
+         #cin>
+      </div>
+      <div *ngIf="angForm.controls['cin'].invalid && (angForm.controls['cin'].dirty || angForm.controls['cin'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['cin'].errors.required">
+          cin   is required.
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="">mail	</label>
+        <input  type="text"
+         class="form-control"  placeholder="Enter the civilité"
+         formControlName="mail" 
+         #mail>
+      </div>
+      <div *ngIf="angForm.controls['mail'].invalid && (angForm.controls['mail'].dirty || angForm.controls['mail'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['mail'].errors.required">
+          mail is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">tel	</label>
+        <input  type="number"
+         class="form-control"  placeholder="Enter the civilité"
+         formControlName="tel" 
+         #tel>
+      </div>
+      <div *ngIf="angForm.controls['tel'].invalid && (angForm.controls['tel'].dirty || angForm.controls['tel'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['tel'].errors.required">
+          tel is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">adresse	</label>
+        <input  type="text"
+         class="form-control"  placeholder="Enter the civilité"
+         formControlName="adresse" 
+         #adresse>
+      </div>
+      <div *ngIf="angForm.controls['adresse'].invalid && (angForm.controls['adresse'].dirty || angForm.controls['adresse'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['adresse'].errors.required">
+          adresse is required.
+        </div>
+      </div>
+      <div class="form-group float-right">
+        <button  (click)="onClose()" cdkFocusInitial type="submit" class="btn btn-primary">Close</button>
+      <button  (click) = "add(angForm)" 
+        type="submit" class="btn btn-primary">Add</button>
+      </div>
+  
+  </form>

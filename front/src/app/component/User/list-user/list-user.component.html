@@ -1,0 +1,75 @@
+<div class="col-md-12">
+  <h1 class="card-title ">Liste user</h1>
+
+  <div class="card">
+    
+    <div class=" card-header card-header-info">
+      <button (click)="onCreate()" mat-raised-button>
+        <mat-icon>add</mat-icon>Create
+      </button>
+      <div class="container">
+    <mat-form-field class="search-form-field " id="search" floatLabel="never">
+          <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+          <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div> 
+     
+    
+          <div class="mat-elevation-z8">
+            <mat-table [dataSource]="listData"  >
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef  >id</mat-header-cell>
+                <mat-cell  *matCellDef="let element">{{element.id}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="nom">
+                <mat-header-cell *matHeaderCellDef >Nom</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.nom}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="prenom">
+                <mat-header-cell *matHeaderCellDef >Prenom</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.prenom}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="sexe">
+                <mat-header-cell *matHeaderCellDef >Sexe</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.sexe}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="cin">
+                <mat-header-cell *matHeaderCellDef  >cin</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.cin}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="tel">
+                <mat-header-cell *matHeaderCellDef >tel</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.tel}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="adresse">
+                <mat-header-cell *matHeaderCellDef >adresse</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.adresse}}</mat-cell>
+              </ng-container>
+               <ng-container matColumnDef="mail">
+                <mat-header-cell *matHeaderCellDef >mail</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.mail}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <button type="button"  (click)="onEdit(row)" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task" aria-describedby="tooltip310957">
+                    <i class="material-icons" >edit</i>
+                  <div class="ripple-container"></div></button>
+                  <button type="button" (click)=" onDelete(row.id)" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove">
+                    <i class="material-icons">close</i>
+                  <div class="ripple-container"></div></button>
+                  <button type="button" (click)="downloadPDF()" class="btn btn-danger btn-link btn-sm" >
+                    <mat-icon>get_app</mat-icon>
+                    <div class="ripple-container"></div></button>
+                </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row (click)="logData(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+</div>
+</div>
