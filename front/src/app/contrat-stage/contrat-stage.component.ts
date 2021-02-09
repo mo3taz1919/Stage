@@ -12,7 +12,7 @@ import 'jspdf-autotable';
 export class ContratStageComponent  {
   @ViewChild('htmlData') htmlData:ElementRef;
 public data =[];
-  readonly apiUrl = ' http://localhost:8089/Salle';
+  readonly apiUrl = ' http://localhost:8089/User';
 
   constructor (private CrudService: CrudService){
     this.getList();

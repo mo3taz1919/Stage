@@ -27,20 +27,20 @@ export class ListUserComponent implements OnInit {
   constructor(private CrudService:CrudService,
     private matDialog:MatDialog,private matDialog2:MatDialog ) { 
       this.matDialog.afterAllClosed.subscribe(result => {
-        this.refershClientList();
+        this.refershuserist();
       });
       this.matDialog2.afterAllClosed.subscribe(result => {
-        this.refershClientList();
+        this.refershuserist();
       });
     }
 
   ngOnInit() {
-    this.refershClientList();
+    this.refershuserist();
     this.matDialog.afterAllClosed.subscribe(result => {
-      this.refershClientList();
+      this.refershuserist();
     });
     this.matDialog2.afterAllClosed.subscribe(result => {
-      this.refershClientList();
+      this.refershuserist();
     });
     this.CrudService.getList(this.apiUrl).subscribe(res => {
       // Use MatTableDataSource for paginator
@@ -51,7 +51,7 @@ export class ListUserComponent implements OnInit {
     });
     
   }
-  refershClientList(){
+  refershuserist(){
     this.CrudService.getList(this.apiUrl).subscribe((results) =>  {
       this.data = results;
       this.listData = new MatTableDataSource(this.data);
@@ -93,7 +93,7 @@ export class ListUserComponent implements OnInit {
     DialogConfig.data=row;
     this.matDialog.open(EditUserComponent,DialogConfig); 
     this.matDialog.afterAllClosed.subscribe(result => {
-      this.refershClientList();
+      this.refershuserist();
     });
     
   }
@@ -107,7 +107,7 @@ doc.save ('fff.pdf');
       .subscribe(
         data => {
           console.log(data);
-          this.refershClientList();
+          this.refershuserist();
         },
         error => console.log(error));
     }
